@@ -1,0 +1,11 @@
+@charset "EUC-KR";
+body{ margin: 0px; padding: 0px; text-decoration: none}
+#wrap {width: 600px; margin: auto;}
+	#header,#footer{width: 600px; height: 100px; text-align: center; background: aqua;}
+	ul{list-style: none;}
+	#header li {display: inline; }
+	#header a:link {text-decoration: none; color: #000 }
+	#content{}
+	#footer li {
+		display: inline;
+	}
