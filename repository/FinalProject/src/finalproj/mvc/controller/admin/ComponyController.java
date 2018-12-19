@@ -28,6 +28,7 @@ public class ComponyController {
 	// 기업 리스트 뷰로 이동
 	@RequestMapping(value = "comlistview")
 	public String listview(Model m) {
+		
 		List<CplistVO> list = adminDaoInter.getAllCpList();
 
 		m.addAttribute("list", list);
