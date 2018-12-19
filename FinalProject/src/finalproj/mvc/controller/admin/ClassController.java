@@ -16,15 +16,18 @@ import org.springframework.web.servlet.ModelAndView;
 import finalproj.dto.ClassVO;
 import finalproj.dto.StudentVO;
 import finalproj.dto.TeacherVO;
-import finalproj.mvc.dao.ClassDao;
+import finalproj.mvc.dao.adminDao.ClassDao;
+
 
 @Controller
 public class ClassController {
 	@Autowired
 	private ClassDao dao;
 
+	// 전체강좌 리스트 목록 보기
 	@RequestMapping(value = "/classlist")
 	public ModelAndView classList() {
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("clist");
 
@@ -34,6 +37,7 @@ public class ClassController {
 		return mav;
 	}
 
+	// 로그인 페이지
 	@RequestMapping(value = "/clogin")
 	public ModelAndView clogin(HttpSession session) {
 
@@ -50,6 +54,7 @@ public class ClassController {
 		return mav;
 	}
 
+	// 로그아웃
 	@RequestMapping(value = "logout")
 	public ModelAndView logout(HttpSession session) {
 
@@ -59,7 +64,8 @@ public class ClassController {
 
 		return mav;
 	}
-
+    
+	// 자신이 맡은 강의리스트 보기
 	@RequestMapping(value = "/myclasslist")
 	public ModelAndView myclassList(HttpSession session, String cid, String cpwd) {
 
@@ -85,7 +91,8 @@ public class ClassController {
 
 		return mav;
 	}
-
+    
+	// 강의를 듣는 학생정보 보기
 	@RequestMapping(value = "/classview",method=RequestMethod.GET)
 	public ModelAndView classview(int cnum) {
        System.out.println("cnum="+cnum);
@@ -98,6 +105,7 @@ public class ClassController {
 		return mav;
 	}
 
+	// 강의개설 페이지
 	@RequestMapping(value = "/create",method=RequestMethod.GET)
 	public ModelAndView creatClass() {
       ModelAndView mav = new ModelAndView();
@@ -107,6 +115,7 @@ public class ClassController {
 		return mav;
 	}
 	
+	// 강의등록 페이지에서 등록버튼 누르면 추가
 	@RequestMapping(value = "/accept",method=RequestMethod.POST)
 	public ModelAndView classaccept(ClassVO vo) {
       ModelAndView mav = new ModelAndView();
